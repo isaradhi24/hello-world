@@ -20,6 +20,10 @@ node
     }
     stage('Delivery')
     {
-        echo "Delivery The Code"
+        echo "Deliver The Code"
+    }
+    stage('Complete')
+    {
+        echo "Pipeline Completed"
     }
 }
