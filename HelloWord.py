@@ -6,4 +6,4 @@ from datetime import datetime
 now = datetime.now()
 
 # Print the current time
-print("Current Time:", now.strftime("%H:%M:%S")
+print("Current Time:", now.strftime("%H:%M:%S"))
