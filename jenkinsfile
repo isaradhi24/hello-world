@@ -1,7 +1,7 @@
 pipeline {
-    agent any { lable 'jenkins-agnet'}
+    agent any { label 'jenkins-agnet'}
     tools {
-      jkd 'java17'
+      jdk 'java17'
       maven 'Maven3'
     }
     
