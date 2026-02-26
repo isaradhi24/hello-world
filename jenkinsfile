@@ -1,13 +1,14 @@
 pipeline {
-    agent { label 'jenkins-agent'}
+    agent { label 'jenkins-agent' }
+
     tools {
-      jdk 'Java17'
-      maven 'Maven3'
+        jdk 'Java17'
+        maven 'Maven3'
     }
-    
+
     stages {
 
-        stage ('Cleanup Workspace') {
+        stage('Cleanup Workspace') {
             steps {
                 cleanWs()
             }
@@ -15,32 +16,32 @@ pipeline {
 
         stage('Checkout') {
             steps {
-                git branch: 'main',
-                    credentialsId: 'github',
-                    url: 'https://github.com/isaradhi24/hello-world.git'
+                git branch: 'master',
+                    url: 'https://github.com/isaradhi24/hello-world.git',
+                    credentialsId: 'github'
             }
         }
 
         stage('Build Application') {
             steps {
-                sh 'echo clean package'
-                sh 'echo Build Successful'
+                sh 'mvn clean package'
+                echo 'Build Successful'
             }
         }
 
         stage('Test Application') {
             steps {
-                echo "Running Tests"
-                sh "mvn test"
-                sh 'echo Tests Passed'
+                echo 'Running Tests'
+                sh 'mvn test'
+                echo 'Tests Passed'
             }
         }
 
         stage('Deploy Application') {
             steps {
-                echo "Deploying Application"
-                sh "mvn deployment"
-                sh 'echo Deployment Complete'
+                echo 'Deploying Application'
+                sh 'mvn deploy'   // Use "deploy" instead of "deployment"
+                echo 'Deployment Complete'
             }
         }
     }
