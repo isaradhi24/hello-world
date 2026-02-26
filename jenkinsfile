@@ -39,8 +39,8 @@ pipeline {
         stage('Deploy Application') {
             steps {
                 echo 'Deploying Application'
-                sh 'mvn deploy'   // Use "deploy" instead of "deployment"
-                echo 'Deployment Complete'
+    //            sh 'mvn deploy'   // Use "deploy" instead of "deployment"
+                echo 'Skipping Deployment - no repository configured deploy stage Completed'
             }
         }
     }
